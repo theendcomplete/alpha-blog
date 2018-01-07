@@ -12,6 +12,7 @@ root 'pages#home'
 #get 'pages/home', to: 'pages#home'
 get 'about', to: 'pages#about'
 get 'signup', to: 'users#new'
+#get 'users/show', to: 'users/show'
 #post 'users', to: 'users#create'
-  resources :users, except: [:new]
+resources :users, except: [:new]
 end
