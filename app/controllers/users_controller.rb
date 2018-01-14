@@ -1,7 +1,8 @@
 class UsersController < ApplicationController
   protect_from_forgery with: :exception
   before_action :set_user, only: [:edit, :update, :show]
-	before_action :require_same_user, only: [:edit, :update]
+	before_action :require_same_user, only: [:edit, :update, :destroy]
+  before_action :require_admin, only: [:destroy]
 def new
     @user = User.new
   end
@@ -40,6 +41,13 @@ def new
     @users = User.paginate(page: params[:page], per_page: 2)
   end
     
+  def destroy
+     @user = User.find(params[:id])
+    @user.destroy
+    
+    flash[:danger] = "User and all of his article have been deleted"
+    redirect_to users_path
+  end  
   
   private
   def user_params
@@ -48,13 +56,21 @@ def new
   
   def set_user
     @user = User.find(params[:id])
-    end
+ end
   
   	def require_same_user
-		 if current_user != @user
+		 if current_user != @user and !current_user.admin?
 			 flash[:danger] = "You can not edit this user"
 			 redirect_to root_path
 	   end	 
 	end
+  
+  def require_admin
+    if logged_in? and !current_user.admin?
+      flash[:danger] = "Only admins can do this"
+      redirect_to root_path
+    end  
+  end
+  
   
 end
