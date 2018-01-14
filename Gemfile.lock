@@ -86,6 +86,15 @@ GEM
     nokogiri (1.8.1)
       mini_portile2 (~> 2.3.0)
     pg (0.21.0)
+    progressive_render (0.7.0)
+      coffee-rails
+      jquery-rails
+      nokogiri
+      rails (>= 4.1)
+      railties
+      sass
+      sass-rails
+      uglifier
     rack (1.6.8)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -176,6 +185,7 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   pg
+  progressive_render
   rails (= 4.2.5)
   rails_12factor
   sass-rails (~> 5.0)

@@ -13,7 +13,7 @@ class SessionsController < ApplicationController
     else
       flash.now[:danger] = " Something went wrong"
       render 'new'
-          end
+    end
 end
    
 
