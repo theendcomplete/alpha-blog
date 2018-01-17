@@ -18,4 +18,5 @@ get 'signup', to: 'users#new'
 #get 'users/show', to: 'users/show'
 #post 'users', to: 'users#create'
 resources :users, except: [:new]
+resources :categories, except: [:destroy]
 end
