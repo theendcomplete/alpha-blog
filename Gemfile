@@ -7,7 +7,7 @@ gem 'rails', '4.2.5'
 gem 'progressive_render'
 # Use sqlite3 as the database for Active Record
 
-gem 'bootstrap-sass', '~> 3.3.7'
+gem 'bootstrap-sass', '~> 3.4.1'
 gem 'will_paginate', '3.0.7'
 gem 'bootstrap-will_paginate', '0.0.10'
 # Use SCSS for stylesheets
